@@ -7,6 +7,9 @@ public class GameManager : MonoBehaviour
 	public static GameManager instance = null;	// Make this class a singleton
 	public BoardManager boardScript;
 	private int level = 3;	
+	public int playerFoodPoints = 100;
+	[HideInInspector]
+	public bool playersTurn = true;
 	
 	// Use this for initialization
 	private void Awake()
@@ -28,6 +31,11 @@ public class GameManager : MonoBehaviour
 	private void InitGame()
 	{
 		boardScript.SetupScene(level);
+	}
+
+	public void GameOver()
+	{
+		this.enabled = false;
 	}
 	
 	// Update is called once per frame
