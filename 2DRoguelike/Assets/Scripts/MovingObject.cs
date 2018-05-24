@@ -14,8 +14,7 @@ public abstract class MovingObject : MonoBehaviour
     protected virtual void Start()
     {
         boxCollider = GetComponent<BoxCollider2D>();
-        rb2D = GetComponent<Rigidbody2D>();
-        
+        rb2D = GetComponent<Rigidbody2D>();        
         // this lets us ese inverseMoveTime using multiplication, which is much faster computationally during run time
         // (equivalent of a velocity when used in conjunction with Time.deltaTime)
         inverseMoveTime = 1f / moveTime;

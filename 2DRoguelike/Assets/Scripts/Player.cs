@@ -15,10 +15,10 @@ public class Player : MovingObject
 
 	// Use this for initialization
 	protected override void Start() 
-	{
+	{		
 		animator = GetComponent<Animator>();
 		food = GameManager.instance.playerFoodPoints;
-		base.Start();		
+		base.Start();
 	}
 	
 	private void OnDisable()
@@ -42,7 +42,7 @@ public class Player : MovingObject
 			vertical = 0;
 		}
 
-		if(horizontal != 0 || horizontal != 0)
+		if(horizontal != 0 || vertical != 0)
 		{
 			AttemptMove<Wall>(horizontal, vertical);			
 		}
@@ -52,7 +52,7 @@ public class Player : MovingObject
 	{
 		food--;
 		base.AttemptMove<T>(xDir, yDir);
-		RaycastHit2D hit;
+		RaycastHit2D hit;		
 		CheckIfGameOver();
 		GameManager.instance.playersTurn = false;
 	}
